@@ -57,6 +57,11 @@ updateBook = (book, shelf) => {
       <div className="app">
         <Route path='/search' render={({history}) => (
           <SearchBooks
+            shelved_books = {this.state.books}
+            shelves = {this.state.shelves}
+            updateBook={(book, shelf) => {
+              this.updateBook(book, shelf)
+            }}
             changePage={() => {
               this.changePage()
               history.push('/')

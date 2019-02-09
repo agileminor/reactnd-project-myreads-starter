@@ -71,7 +71,12 @@ updateBook = (book, shelf) => {
             <div className="list-books-content">
               <div>
                 {this.state.shelves.map((shelf) => (
-                  <Shelf key={shelf.id} shelf={shelf} books={this.state.books.filter(book => book.shelf === shelf.id)}/>
+                  <Shelf key={shelf.id}
+                    shelf={shelf}
+                    books={this.state.books.filter(book => book.shelf === shelf.id)}
+                    updateBook={(book, shelf) => {
+                      this.updateBook(book, shelf)
+                    }}/>
                   ))}
               </div>
             </div>
